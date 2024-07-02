@@ -2,6 +2,7 @@ import os
 import numpy as np
 from utils import WdsWriter
 import deepdish as dd
+#import h5py
 import cv2
 import csv
 import pandas as pd
@@ -57,10 +58,10 @@ def data_gen_create_webdataset(args) -> None:
     os.makedirs(extracted_dir, exist_ok=True)
     labels = [["path", "object_name", "is_gripping", "has_contact"]]
 
-    datasets = [f for f in os.listdir(os.path.join(args.path, "dataset")) if f.endswith(".h5")]
+
+    datasets = [f for f in os.listdir(args.path) if f.endswith(".h5")]
     for dataset in datasets:
-        print(f"Extracting frames for {dataset}")
-        entries = dd.io.load(os.path.join(args.path, "dataset", dataset))
+        entries = dd.io.load(os.path.join(args.path, dataset))
         for idx, entry in enumerate(entries):
             l = _create_img(entry, extracted_dir, dataset, idx, "gelsightA_during")
             labels.append(l)
@@ -107,7 +108,7 @@ if __name__ == "__main__":
                     help='Maximum number of samples in a single WDS shard.')
     parser.add_argument('--path', type=str,
                     help='Path to the dataset')
-    parser.add_argument('--no_contact_ratio', type=float, default=0.3,
+    parser.add_argument('--no_contact_ratio', type=float, default=0.1,
                 help='This dataset also contains no-contact images. This ratio specifies the fraction of no-contact images to include in the dataset.')
     args = parser.parse_args()
     data_gen_create_webdataset(args)
