@@ -62,7 +62,7 @@ if __name__ == "__main__":
                     help='Path to the HCT dataset')
     parser.add_argument('--ssvtp_path', type=str,
                     help='Path to the SSVTP dataset')
-    parser.add_argument('--hct_no_contact_ratio', type=float, default=1.0,
+    parser.add_argument('--hct_no_contact_ratio', type=float, default=0.1,
                 help='The HCT dataset also contains no-contact images. This ratio specifies the fraction of no-contact images to include in the dataset.')
     args = parser.parse_args()
     data_gen_create_webdataset(args)
