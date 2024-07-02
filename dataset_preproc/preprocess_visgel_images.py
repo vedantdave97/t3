@@ -156,6 +156,7 @@ if __name__ == "__main__":
 
 """
 Running the script:
+Run the Touch Specific folder
 python preprocess_visgel_images.py --unseen_path /media/vedant/cpsDataStorageWK/Vedant/tactile_datasets/datasets/visgel-raw/data/data_unseen/images/touch --seen_path /media/vedant/cpsDataStorageWK/Vedant/tactile_datasets/datasets/visgel-raw/data/data_seen/images/touch --output_folder /m
 edia/vedant/cpsDataStorageWK/Vedant/tactile_datasets/datasets/visgel
 """
