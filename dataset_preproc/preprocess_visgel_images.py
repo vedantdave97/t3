@@ -54,7 +54,7 @@ def data_gen_create_webdataset(args) -> None:
     """
     output_dir = args.output_folder
     domain = "visgel"
-        
+    
     domain_dir = os.path.join(output_dir, domain)
     os.makedirs(domain_dir, exist_ok=True)
 
@@ -153,3 +153,9 @@ if __name__ == "__main__":
     data_gen_create_webdataset(args)
     if not args.no_downsampling:
         downsample_visgel(args)
+
+"""
+Running the script:
+python preprocess_visgel_images.py --unseen_path /media/vedant/cpsDataStorageWK/Vedant/tactile_datasets/datasets/visgel-raw/data/data_unseen/images/touch --seen_path /media/vedant/cpsDataStorageWK/Vedant/tactile_datasets/datasets/visgel-raw/data/data_seen/images/touch --output_folder /m
+edia/vedant/cpsDataStorageWK/Vedant/tactile_datasets/datasets/visgel
+"""
